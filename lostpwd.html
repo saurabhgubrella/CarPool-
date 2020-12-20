@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!-- lost password start here -->
+
+</head>
+<body>
+{% include 'header.html' %}
+<br><br>
+<div align="center">
+<form action="/getpassword/" method="post">
+    {% csrf_token %}
+    Email Id:<input type="email" required="required" name="email">
+    <br><br>
+    <input type="submit" value="Recover">
+</form>
+   Password: {% for user in msg %}
+         <font color="green">{{user.user_password}}</font>
+        {% endfor %}
+    <font color="red">{{ msg1 }}</font>
+</div>
+{% include 'footer.html' %}
+</body>
+</html>

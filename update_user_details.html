@@ -1,0 +1,72 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <style>
+        #tbl{
+            width: 400px;
+            height: 300px;
+            position: absolute;
+            background-color: aliceblue;
+            opacity: 0.8;
+            margin-left: 380px;
+            margin-top:-150px;
+            border-radius: 15px;
+        }
+        th,td{
+            padding: 12px;
+        }
+        input{
+            border-radius: 10px;
+        }
+    </style>
+</head>
+  <body>
+   {% include 'header_login.html' %}
+   Welcome, 
+         <font color="green">{{request.session.user_name}}</font>
+     
+   <br>
+   <a href='/back_user'>Back</a>
+   <br>
+<div align="center">
+      <label style="position:absolute;left:450px;top:450px;"><b><font color='black'>{{ msg }}</font><b></label>
+   
+    <form action="/update_user_db/" method="post">
+	
+            {% csrf_token %}
+        <div id="tbl">
+   <table cellpadding=10>
+   
+   <tr>
+	<td><label><b>Email Id:</b></label></td>
+	<td>
+    <input type="email" name="useremail" value="{{request.session.user_email}}" readonly></td>
+   </tr>
+   
+   <tr>
+	<td><label><b>Username:</b></label></td>
+	<td><input type="text" name="username" value="{{request.session.user_name}}" required></td>
+   </tr>
+   
+   <tr>
+	<td><label><b>Password:</b></label></td>
+	<td><input type="text" name="userpassword" value="{{request.session.user_password}}" required></td>
+   </tr>
+   
+   <tr>
+	<td><label><b>Mobile Number:</b></label></td>
+	<td><input type="number" name="usermobile" value="{{request.session.user_mobile}}" required></td>
+   </tr>
+   
+   <tr>
+	<td><button type="submit" class="btn btn-primary">Update</button></td>
+	<td><button type="reset" class="btn btn-primary">Reset</button></td>
+   </tr>
+   </table>
+        </div>
+</form>       
+</div>
+    {% include 'footer.html' %}
+
+   </body>
+</html>

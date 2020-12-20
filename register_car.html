@@ -1,0 +1,82 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <style>
+        #tbl{
+            width: 800px;
+            height: 320px;
+            position: absolute;
+            background-color: aliceblue;
+            opacity: 0.8;
+            margin-left: 200px;
+            margin-top: -200x;
+            border-radius: 15px;
+        }
+        th,td{
+            padding: 12px;
+        }
+        input{
+            border-radius: 10px;
+        }
+    </style>
+</head>
+  <body>
+   {% include 'header_login.html' %}
+   Welcome, 
+         <font color="green">{{request.session.user_name}}</font>
+     
+   <br>
+   <a href='/back_user'>Back</a>
+   
+<div align="center">
+      <label><b><font color='red'>{{ msg }}</font><b></label>
+   <label><b><font color='green'>{{ success }}</font><b></label>
+    <form action="/register_car_db/" method="post">
+            {% csrf_token %}
+        <div id="tbl">
+   <table cellpadding="8">
+			                       
+								<tr>
+									<td>Car No.</td><td><input type="text" name="CarNumber" required /></td>
+								
+								
+								
+										<td>Car Model</td><td><input type="text" name="Model" required /></td>
+							 
+								</tr>
+							<tr>
+									<td>Seats In Car</td><td><input type="text" name="Seats" required /></td>
+							 
+							
+							
+									<td>Source</td><td><input type="text" name="Source" required /></td>
+							 
+							</tr>
+							
+							<tr>
+									<td>Destination</td><td><input type="text" name="Destination" required /></td>
+							 
+							
+								
+									<td>Departure Time</td><td><input type="text" name="DepartureTime" required /></td>
+							 
+							</tr>
+							<tr>
+									<td>Return Time</td><td><input type="text" name="ReturnTime" required/></td>
+							 
+							</tr>
+							<tr>
+									<td><button type="submit" class="btn btn-primary">Register</button></td>
+	<td><button type="reset" class="btn btn-primary">Reset</button></td>
+   
+							</tr>
+						                        
+                         </table>     
+        </div>
+	                
+</form>       
+</div>
+    {% include 'footer.html' %}
+
+   </body>
+</html>

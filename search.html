@@ -1,0 +1,27 @@
+<!doctype html>
+<html lang="en">
+  <body>
+   {% include 'header.html' %}
+ <div align="center">
+ <table cellpadding=10>
+ <thead>
+ <th>Model</th><th>Dept Time</th><th>Return Time</th>
+ <th>Source</th><th>Dest</th>
+ <th>Email</th>
+ </thead>
+    {% for car in cars %}
+        <tr>
+		<td>{{car.car_model }}</td>
+        <td>{{car.car_depttime }}</td>
+        <td>{{car.car_retntime }}</td>
+        <td>{{car.car_source }}</td>
+        <td>{{car.car_destination }}</td>
+        <td>{{car.user_email }}</td>
+        </tr>
+     {% endfor %}
+
+ </div>
+    {% include 'footer.html' %}
+
+   </body>
+</html>

@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <style>
+        #tbl{
+            width: 400px;
+            height: 400px;
+            position: absolute;
+            background-color: aliceblue;
+            opacity: 0.8;
+            margin-left: 500px;
+            margin-bottom: 350px;
+            border-radius: 15px;
+        }
+        th,td{
+            padding: 12px;
+        }
+        input{
+            border-radius: 10px;
+        }
+    </style>
+</head>
+  <body style="background-color: aliceblue">
+   {% include 'header_login.html' %}
+   Welcome, 
+         <font color="green">{{request.session.user_name}}</font>
+     
+   <br>
+   <a href='/back_user'>Back</a>
+   
+<div align="center">
+   <label><b><font color='green'>{{ success }}</font><b></label>
+    <form action="/update_car_db/" method="post">
+            {% csrf_token %}
+        <div id="tbl">
+   <table cellpadding="8">
+			                       
+								<tr>
+									<td>Car No.</td><td><input type="text" name="CarNumber" value="{{request.session.car_number}}" required /></td>
+								
+								
+								
+										<td>Car Model</td><td><input type="text" name="Model" value="{{request.session.car_model}}" required /></td>
+							 
+								</tr>
+							<tr>
+									<td>Seats In Car</td><td><input type="text" name="Seats" value="{{request.session.car_seats}}" required /></td>
+							 
+							
+							
+									<td>Source</td><td><input type="text" name="Source" value="{{request.session.car_source}}" required /></td>
+							 
+							</tr>
+							
+							<tr>
+									<td>Destination</td><td><input type="text" name="Destination" value="{{request.session.car_dest}}" required /></td>
+							 
+							
+								
+									<td>Departure Time</td><td><input type="text" name="DepartureTime" value="{{request.session.car_dept}}" required /></td>
+							 
+							</tr>
+							<tr>
+									<td>Return Time</td><td><input type="text" name="ReturnTime" value="{{request.session.car_rettime}}" required/></td>
+							 
+							</tr>
+							<tr>
+									<td><button type="submit" class="btn btn-primary">Update</button></td>
+	<td><button type="reset" class="btn btn-primary">Reset</button></td>
+   
+							</tr>
+						                        
+                         </table>     
+						 
+	                </div>
+</form>       
+</div>
+    {% include 'footer.html' %}
+
+   </body>
+</html>

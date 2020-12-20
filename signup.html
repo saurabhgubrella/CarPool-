@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="en">
+  <body>
+   {% include 'header.html' %}
+  
+   <div align='center'>
+    <label><b><font color='red'>{{ msg }}</font><b></label>
+   <label><b><font color='green'>{{ success }}</font><b></label>
+   
+    <form action="/signup/" method="post">
+            {% csrf_token %}
+   <table cellpadding=10>
+   <tr>
+	<td><label><b>Username:</b></label></td>
+	<td><input type="text" name="username" placeholder="Enter username" required></td>
+   </tr>
+   
+   <tr>
+	<td><label><b>Email Id:</b></label></td>
+	<td>
+    <input type="email" name="useremail" placeholder="Enter email" required></td>
+   </tr>
+   
+   <tr>
+	<td><label><b>Password:</b></label></td>
+	<td><input type="password" name="userpassword" placeholder="Password" required></td>
+   </tr>
+   
+   <tr>
+	<td><label><b>Mobile Number:</b></label></td>
+	<td><input type="number" name="usermobile" placeholder="Mobile number" required></td>
+   </tr>
+   
+   <tr>
+	<td><button type="submit" class="btn btn-primary">Sign up</button></td>
+	<td><button type="reset" class="btn btn-primary">Reset</button></td>
+   </tr>
+   </table>
+</form>
+</div>
+    {% include 'footer.html' %}
+
+   </body>
+</html>
